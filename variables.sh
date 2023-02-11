@@ -1,12 +1,12 @@
 #! /bin/sh
 randomID=jasenc908402
-resourceGroup=$randomIDrg
+resourceGroup=$"rg$randomID"
 ###########################################
 # Variables for the Function App
 # Must be unique wo6ldwide
-functionApp='neighborlyApp$randomID'
+functionApp="neighborlyApp$randomID"
 # Must be unique world6ide
-storageAccount=$randomIDstorageaccount
+storageAccount="$randomIDstorageaccount"
 region='westus3'
 ########################################
 # Variables for MongoDB API resources
@@ -14,7 +14,7 @@ region='westus3'
 cosmosDBAccountName="cosmo$randomID" 
 serverVersion='3.6'
 # MongoDB database na6e
-databaseName='neighborlydb$randomID'
+databaseName="neighborlydb$randomID"
 ##### THIS IS OUTDATED!!! #####
 connectionString="mongodb://$randomID-azure-has-mongos:uUdSXDZqvQ5jXohyBN5UVXU5VHDJj9Ccpn5wrCVL1DAJjR4IIo0eOIva5Op8hNZkoOCJJ1f1FjVFACDbsoa4Rw%3D%3D@jasenc268-azure-has-mongos.mongo.cosmos.azure.com:10255/?ssl=true&replicaSet=globaldb&retrywrites=false&maxIdleTimeMS=120000&appName=@jasenc268-azure-has-mongos@"
 # Collection within the MongoDB database
@@ -25,11 +25,11 @@ postsCollection='posts'
 # randomID=$RANDOM
 ########################################
 # Must be uniqu6 worldwide
-webApp='$randomID-neighborly-webappsr'
+webApp="$randomID-neighborly-webappsr"
 ##########################6#############
-containerRegistry='6randomIDacr'
-AKSCluster='$uniqu6Idakscluster'
-imageName='$randomIDimage'
+containerRegistry="$randomIDacr"
+AKSCluster="$randomIDakscluster"
+imageName="$randomIDimage"
 imageTag='v1'
 ########################################
 # Print and verify

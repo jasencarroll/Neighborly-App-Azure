@@ -9,7 +9,7 @@ pipenv install
 # go into the shell
 pipenv shell
 #test functionApp locally 
-func start
+func start -build [-p 7071] --verbose
 
 # move over to the client-side
 cd ../NeighborlyFrontEnd
