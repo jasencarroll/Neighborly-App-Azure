@@ -1,4 +1,8 @@
 #! /bin/sh
+########################################
+# General purpose variables
+# randomID=$RANDOM
+########################################
 randomID=jasenc908402
 resourceGroup=$"rg$randomID"
 ###########################################
@@ -20,11 +24,7 @@ connectionString="mongodb://$randomID-azure-has-mongos:uUdSXDZqvQ5jXohyBN5UVXU5V
 # Collection within the MongoDB database
 adsCollection='advertisements'
 postsCollection='posts'
-########################################
-# General purpose variables
-# randomID=$RANDOM
-########################################
-# Must be uniqu6 worldwide
+# Must be unique worldwide
 webApp="$randomID-neighborly-webappsr"
 ##########################6#############
 containerRegistry="acr$randomID"
@@ -32,6 +32,10 @@ AKSCluster="akscluster$randomID"
 imageName="image$randomID"
 imageTag='v1'
 ########################################
+appRegistry = "appreg$randomID"
+kubCluster="kubcluster$randomID"
+docker="docker$randomID"
+
 # Print and verify
 echo "=======Local Environment Variables======"
 echo "functionApp = "$functionApp
