@@ -1,11 +1,12 @@
 #! /bin/sh
-# catch the connection string from the Azure portal
-##### THIS IS OUTDATED!!! #####
-# connectionString="mongodb://$randomID-XXXXXX"
+
+# get necessary variables
+chmod +x variables.sh
+source variables.sh
 
 # finally import data from json files to the MongoDB API Collections
-mongoimport --uri $connectionString --collection $adsCollection --file='./sample_data/sampleAds' --jsonArray
-mongoimport --uri $connectionString --collection $postsCollection --file='./sample_data/samplePosts' --jsonArray
+mongoimport --uri $connectionString --collection $adsCollection --file="./sample_data/sampleAds.json" --jsonArray
+mongoimport --uri $connectionString --collection $postsCollection --file="./sample_data/samplePosts.json" --jsonArray
 
 #########################################
 # Now we need to establish a connection between cosmosDB 

@@ -1,3 +1,4 @@
+#! /bin/sh
 # before we start load variables
 chmod +x variables.sh
 source variables.sh

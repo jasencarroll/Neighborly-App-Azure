@@ -1,27 +1,24 @@
-jasen@NanoLeaf neighbor2(dev*)$ bash resources.sh
-variables.sh: line 35: appRegistry: command not found
 =======Local Environment Variables======
-functionApp = neighborlyAppjc854267
-resourceGroup = rgjc854267
-storageAccount = blobjc854267
+functionApp = neighborAppjc186148
+resourceGroup = rgjc186148
+storageAccount = blobjc186148
 region = westus3
-cosmosDBAccountName = cosmojc854267
+cosmosDBAccountName = cosmojc186148
 serverVersion = 3.6
-databaseName = dbjc854267
-connectionString = mongodb://jc854267-azure-has-mongos:uUdSXDZqvQ5jXohyBN5UVXU5VHDJj9Ccpn5wrCVL1DAJjR4IIo0eOIva5Op8hNZkoOCJJ1f1FjVFACDbsoa4Rw%3D%3D@jasenc268-azure-has-mongos.mongo.cosmos.azure.com:10255/?ssl=true&replicaSet=globaldb&retrywrites=false&maxIdleTimeMS=120000&appName=@jasenc268-azure-has-mongos@
+databaseName = dbjc186148
 adsCollection = advertisements
 postsCollection = posts
-webApp = jc854267-webappsr
-containerRegistry = acrjc854267
-AKSCluster = aksclusterjc854267
-imageName = imagejc854267
+webApp = jc186148-webappsr
+containerRegistry = acrjc186148
+AKSCluster = aksclusterjc186148
+imageName = imagejc186148
 imageTag = v1
 =======End of Result======
 {
-  "id": "/subscriptions/a03d6f21-4710-41d1-a57b-1f567aef08e1/resourceGroups/rgjc854267",
+  "id": "/subscriptions/a03d6f21-4710-41d1-a57b-1f567aef08e1/resourceGroups/rgjc186148",
   "location": "westus3",
   "managedBy": null,
-  "name": "rgjc854267",
+  "name": "rgjc186148",
   "properties": {
     "provisioningState": "Succeeded"
   },
@@ -37,7 +34,7 @@ The public access to all blobs or containers in the storage account will be disa
   "allowedCopyScope": null,
   "azureFilesIdentityBasedAuthentication": null,
   "blobRestoreStatus": null,
-  "creationTime": "2023-02-12T05:55:20.908373+00:00",
+  "creationTime": "2023-02-12T06:37:19.075451+00:00",
   "customDomain": null,
   "defaultToOAuthAuthentication": null,
   "dnsEndpointType": null,
@@ -52,12 +49,12 @@ The public access to all blobs or containers in the storage account will be disa
       "blob": {
         "enabled": true,
         "keyType": "Account",
-        "lastEnabledTime": "2023-02-12T05:55:21.502130+00:00"
+        "lastEnabledTime": "2023-02-12T06:37:19.794260+00:00"
       },
       "file": {
         "enabled": true,
         "keyType": "Account",
-        "lastEnabledTime": "2023-02-12T05:55:21.502130+00:00"
+        "lastEnabledTime": "2023-02-12T06:37:19.794260+00:00"
       },
       "queue": null,
       "table": null
@@ -66,15 +63,15 @@ The public access to all blobs or containers in the storage account will be disa
   "extendedLocation": null,
   "failoverInProgress": null,
   "geoReplicationStats": null,
-  "id": "/subscriptions/a03d6f21-4710-41d1-a57b-1f567aef08e1/resourceGroups/rgjc854267/providers/Microsoft.Storage/storageAccounts/blobjc854267",
+  "id": "/subscriptions/a03d6f21-4710-41d1-a57b-1f567aef08e1/resourceGroups/rgjc186148/providers/Microsoft.Storage/storageAccounts/blobjc186148",
   "identity": null,
   "immutableStorageWithVersioning": null,
   "isHnsEnabled": null,
   "isLocalUserEnabled": null,
   "isSftpEnabled": null,
   "keyCreationTime": {
-    "key1": "2023-02-12T05:55:20.955247+00:00",
-    "key2": "2023-02-12T05:55:20.955247+00:00"
+    "key1": "2023-02-12T06:37:19.153631+00:00",
+    "key2": "2023-02-12T06:37:19.153631+00:00"
   },
   "keyPolicy": null,
   "kind": "StorageV2",
@@ -82,7 +79,7 @@ The public access to all blobs or containers in the storage account will be disa
   "lastGeoFailoverTime": null,
   "location": "westus3",
   "minimumTlsVersion": "TLS1_0",
-  "name": "blobjc854267",
+  "name": "blobjc186148",
   "networkRuleSet": {
     "bypass": "AzureServices",
     "defaultAction": "Allow",
@@ -91,20 +88,20 @@ The public access to all blobs or containers in the storage account will be disa
     "virtualNetworkRules": []
   },
   "primaryEndpoints": {
-    "blob": "https://blobjc854267.blob.core.windows.net/",
-    "dfs": "https://blobjc854267.dfs.core.windows.net/",
-    "file": "https://blobjc854267.file.core.windows.net/",
+    "blob": "https://blobjc186148.blob.core.windows.net/",
+    "dfs": "https://blobjc186148.dfs.core.windows.net/",
+    "file": "https://blobjc186148.file.core.windows.net/",
     "internetEndpoints": null,
     "microsoftEndpoints": null,
-    "queue": "https://blobjc854267.queue.core.windows.net/",
-    "table": "https://blobjc854267.table.core.windows.net/",
-    "web": "https://blobjc854267.z1.web.core.windows.net/"
+    "queue": "https://blobjc186148.queue.core.windows.net/",
+    "table": "https://blobjc186148.table.core.windows.net/",
+    "web": "https://blobjc186148.z1.web.core.windows.net/"
   },
   "primaryLocation": "westus3",
   "privateEndpointConnections": [],
   "provisioningState": "Succeeded",
   "publicNetworkAccess": null,
-  "resourceGroup": "rgjc854267",
+  "resourceGroup": "rgjc186148",
   "routingPreference": null,
   "sasPolicy": null,
   "secondaryEndpoints": null,
@@ -121,7 +118,7 @@ The public access to all blobs or containers in the storage account will be disa
 }
 /opt/homebrew/Cellar/azure-cli/2.45.0/libexec/lib/python3.10/site-packages/paramiko/transport.py:236: CryptographyDeprecationWarning: Blowfish has been deprecated
   "class": algorithms.Blowfish,
-Your Linux function app 'neighborlyAppjc854267', that uses a consumption plan has been successfully created but is not active until content is published using Azure Portal or the Functions Core Tools.
+Your Linux function app 'neighborAppjc186148', that uses a consumption plan has been successfully created but is not active until content is published using Azure Portal or the Functions Core Tools.
 Error while trying to create and configure an Application Insights for the Function App. Please use the Azure Portal to create and configure the Application Insights, if needed.
 {
   "availabilityState": "Normal",
@@ -133,11 +130,11 @@ Error while trying to create and configure an Application Insights for the Funct
   "containerSize": 0,
   "customDomainVerificationId": "AFDF70FA37C6AAF6351193719A084C5AC461FDBDE333CA6E741D100B6F396F52",
   "dailyMemoryTimeQuota": 0,
-  "defaultHostName": "neighborlyappjc854267.azurewebsites.net",
+  "defaultHostName": "neighborappjc186148.azurewebsites.net",
   "enabled": true,
   "enabledHostNames": [
-    "neighborlyappjc854267.azurewebsites.net",
-    "neighborlyappjc854267.scm.azurewebsites.net"
+    "neighborappjc186148.azurewebsites.net",
+    "neighborappjc186148.scm.azurewebsites.net"
   ],
   "extendedLocation": null,
   "hostNameSslStates": [
@@ -145,7 +142,7 @@ Error while trying to create and configure an Application Insights for the Funct
       "hostType": "Standard",
       "ipBasedSslResult": null,
       "ipBasedSslState": "NotConfigured",
-      "name": "neighborlyappjc854267.azurewebsites.net",
+      "name": "neighborappjc186148.azurewebsites.net",
       "sslState": "Disabled",
       "thumbprint": null,
       "toUpdate": null,
@@ -156,7 +153,7 @@ Error while trying to create and configure an Application Insights for the Funct
       "hostType": "Repository",
       "ipBasedSslResult": null,
       "ipBasedSslState": "NotConfigured",
-      "name": "neighborlyappjc854267.scm.azurewebsites.net",
+      "name": "neighborappjc186148.scm.azurewebsites.net",
       "sslState": "Disabled",
       "thumbprint": null,
       "toUpdate": null,
@@ -165,32 +162,32 @@ Error while trying to create and configure an Application Insights for the Funct
     }
   ],
   "hostNames": [
-    "neighborlyappjc854267.azurewebsites.net"
+    "neighborappjc186148.azurewebsites.net"
   ],
   "hostNamesDisabled": false,
   "hostingEnvironmentProfile": null,
   "httpsOnly": false,
   "hyperV": false,
-  "id": "/subscriptions/a03d6f21-4710-41d1-a57b-1f567aef08e1/resourceGroups/rgjc854267/providers/Microsoft.Web/sites/neighborlyAppjc854267",
+  "id": "/subscriptions/a03d6f21-4710-41d1-a57b-1f567aef08e1/resourceGroups/rgjc186148/providers/Microsoft.Web/sites/neighborAppjc186148",
   "identity": null,
   "inProgressOperationId": null,
   "isDefaultContainer": null,
   "isXenon": false,
   "keyVaultReferenceIdentity": "SystemAssigned",
   "kind": "functionapp,linux",
-  "lastModifiedTimeUtc": "2023-02-12T05:55:52.926666",
+  "lastModifiedTimeUtc": "2023-02-12T06:37:48.986666",
   "location": "westus3",
   "maxNumberOfWorkers": null,
-  "name": "neighborlyAppjc854267",
+  "name": "neighborAppjc186148",
   "outboundIpAddresses": "20.40.24.49,20.40.24.81,20.40.24.108,20.40.24.23,20.40.24.30,20.40.24.31,20.40.24.37",
   "possibleOutboundIpAddresses": "20.40.24.49,20.40.24.81,20.40.24.108,20.40.24.23,20.40.24.30,20.40.24.31,20.40.24.38,20.40.24.39,20.40.24.89,20.40.24.50,20.40.24.51,20.40.24.54,20.40.24.55,20.40.24.62,20.40.24.46,20.40.24.16,20.40.24.63,20.40.24.144,20.150.155.106,20.150.155.120,20.150.155.126,20.150.154.251,20.150.155.109,20.150.155.169,20.40.24.37",
   "publicNetworkAccess": null,
   "redundancyMode": "None",
-  "repositorySiteName": "neighborlyAppjc854267",
+  "repositorySiteName": "neighborAppjc186148",
   "reserved": true,
-  "resourceGroup": "rgjc854267",
+  "resourceGroup": "rgjc186148",
   "scmSiteAlsoStopped": false,
-  "serverFarmId": "/subscriptions/a03d6f21-4710-41d1-a57b-1f567aef08e1/resourceGroups/rgjc854267/providers/Microsoft.Web/serverfarms/WestUS3LinuxDynamicPlan",
+  "serverFarmId": "/subscriptions/a03d6f21-4710-41d1-a57b-1f567aef08e1/resourceGroups/rgjc186148/providers/Microsoft.Web/serverfarms/WestUS3LinuxDynamicPlan",
   "siteConfig": {
     "acrUseManagedIdentityCreds": false,
     "acrUserManagedIdentityId": null,
@@ -357,7 +354,7 @@ Error while trying to create and configure an Application Insights for the Funct
   "defaultIdentity": "FirstPartyIdentity",
   "disableKeyBasedMetadataWriteAccess": false,
   "disableLocalAuth": false,
-  "documentEndpoint": "https://cosmojc854267.documents.azure.com:443/",
+  "documentEndpoint": "https://cosmojc186148.documents.azure.com:443/",
   "enableAnalyticalStorage": false,
   "enableAutomaticFailover": false,
   "enableCassandraConnector": null,
@@ -367,48 +364,48 @@ Error while trying to create and configure an Application Insights for the Funct
   "failoverPolicies": [
     {
       "failoverPriority": 0,
-      "id": "cosmojc854267-westus3",
+      "id": "cosmojc186148-westus3",
       "locationName": "West US 3"
     }
   ],
-  "id": "/subscriptions/a03d6f21-4710-41d1-a57b-1f567aef08e1/resourceGroups/rgjc854267/providers/Microsoft.DocumentDB/databaseAccounts/cosmojc854267",
+  "id": "/subscriptions/a03d6f21-4710-41d1-a57b-1f567aef08e1/resourceGroups/rgjc186148/providers/Microsoft.DocumentDB/databaseAccounts/cosmojc186148",
   "identity": {
     "principalId": null,
     "tenantId": null,
     "type": "None",
     "userAssignedIdentities": null
   },
-  "instanceId": "aa6229db-977b-49dc-950b-90094333e16d",
+  "instanceId": "f3f818f8-d7f4-487e-8bd5-2ec46ecb945f",
   "ipRules": [],
   "isVirtualNetworkFilterEnabled": false,
   "keyVaultKeyUri": null,
   "keysMetadata": {
     "primaryMasterKey": {
-      "generationTime": "2023-02-12T05:58:34.920938+00:00"
+      "generationTime": "2023-02-12T06:40:16.930669+00:00"
     },
     "primaryReadonlyMasterKey": {
-      "generationTime": "2023-02-12T05:58:34.920938+00:00"
+      "generationTime": "2023-02-12T06:40:16.930669+00:00"
     },
     "secondaryMasterKey": {
-      "generationTime": "2023-02-12T05:58:34.920938+00:00"
+      "generationTime": "2023-02-12T06:40:16.930669+00:00"
     },
     "secondaryReadonlyMasterKey": {
-      "generationTime": "2023-02-12T05:58:34.920938+00:00"
+      "generationTime": "2023-02-12T06:40:16.930669+00:00"
     }
   },
   "kind": "MongoDB",
   "location": "West US 3",
   "locations": [
     {
-      "documentEndpoint": "https://cosmojc854267-westus3.documents.azure.com:443/",
+      "documentEndpoint": "https://cosmojc186148-westus3.documents.azure.com:443/",
       "failoverPriority": 0,
-      "id": "cosmojc854267-westus3",
+      "id": "cosmojc186148-westus3",
       "isZoneRedundant": false,
       "locationName": "West US 3",
       "provisioningState": "Succeeded"
     }
   ],
-  "name": "cosmojc854267",
+  "name": "cosmojc186148",
   "networkAclBypass": "None",
   "networkAclBypassResourceIds": [],
   "privateEndpointConnections": null,
@@ -416,18 +413,18 @@ Error while trying to create and configure an Application Insights for the Funct
   "publicNetworkAccess": "Enabled",
   "readLocations": [
     {
-      "documentEndpoint": "https://cosmojc854267-westus3.documents.azure.com:443/",
+      "documentEndpoint": "https://cosmojc186148-westus3.documents.azure.com:443/",
       "failoverPriority": 0,
-      "id": "cosmojc854267-westus3",
+      "id": "cosmojc186148-westus3",
       "isZoneRedundant": false,
       "locationName": "West US 3",
       "provisioningState": "Succeeded"
     }
   ],
-  "resourceGroup": "rgjc854267",
+  "resourceGroup": "rgjc186148",
   "restoreParameters": null,
   "systemData": {
-    "createdAt": "2023-02-12T05:58:34.920938+00:00",
+    "createdAt": "2023-02-12T06:40:16.930669+00:00",
     "createdBy": null,
     "createdByType": null,
     "lastModifiedAt": null,
@@ -439,9 +436,9 @@ Error while trying to create and configure an Application Insights for the Funct
   "virtualNetworkRules": [],
   "writeLocations": [
     {
-      "documentEndpoint": "https://cosmojc854267-westus3.documents.azure.com:443/",
+      "documentEndpoint": "https://cosmojc186148-westus3.documents.azure.com:443/",
       "failoverPriority": 0,
-      "id": "cosmojc854267-westus3",
+      "id": "cosmojc186148-westus3",
       "isZoneRedundant": false,
       "locationName": "West US 3",
       "provisioningState": "Succeeded"
@@ -449,7 +446,7 @@ Error while trying to create and configure an Application Insights for the Funct
   ]
 }
 {
-  "id": "/subscriptions/a03d6f21-4710-41d1-a57b-1f567aef08e1/resourceGroups/rgjc854267/providers/Microsoft.DocumentDB/databaseAccounts/cosmojc854267/mongodbDatabases/dbjc854267/collections/advertisements",
+  "id": "/subscriptions/a03d6f21-4710-41d1-a57b-1f567aef08e1/resourceGroups/rgjc186148/providers/Microsoft.DocumentDB/databaseAccounts/cosmojc186148/mongodbDatabases/dbjc186148/collections/advertisements",
   "location": null,
   "name": "advertisements",
   "options": null,
@@ -473,12 +470,12 @@ Error while trying to create and configure an Application Insights for the Funct
     },
     "ts": null
   },
-  "resourceGroup": "rgjc854267",
+  "resourceGroup": "rgjc186148",
   "tags": null,
   "type": "Microsoft.DocumentDB/databaseAccounts/mongodbDatabases/collections"
 }
 {
-  "id": "/subscriptions/a03d6f21-4710-41d1-a57b-1f567aef08e1/resourceGroups/rgjc854267/providers/Microsoft.DocumentDB/databaseAccounts/cosmojc854267/mongodbDatabases/dbjc854267/collections/posts",
+  "id": "/subscriptions/a03d6f21-4710-41d1-a57b-1f567aef08e1/resourceGroups/rgjc186148/providers/Microsoft.DocumentDB/databaseAccounts/cosmojc186148/mongodbDatabases/dbjc186148/collections/posts",
   "location": null,
   "name": "posts",
   "options": null,
@@ -502,51 +499,7 @@ Error while trying to create and configure an Application Insights for the Funct
     },
     "ts": null
   },
-  "resourceGroup": "rgjc854267",
+  "resourceGroup": "rgjc186148",
   "tags": null,
   "type": "Microsoft.DocumentDB/databaseAccounts/mongodbDatabases/collections"
 }
-2023-02-11T22:00:36.333-0800	Failed: open ./sample_data/sampleAds: no such file or directory
-2023-02-11T22:00:36.339-0800	0 document(s) imported successfully. 0 document(s) failed to import.
-2023-02-11T22:00:38.663-0800	Failed: open ./sample_data/samplePosts: no such file or directory
-2023-02-11T22:00:38.669-0800	0 document(s) imported successfully. 0 document(s) failed to import.
-mongodb://cosmojc854267:MMsSgYTHx9trsxDz6oAhEYsGpyKIS27rgpZxiCGre766tQbDZKXrbMHRHFzC3UPUKpxf5mjg7B7xACDbD9PnsA==@cosmojc854267.mongo.cosmos.azure.com:10255/?ssl=true&replicaSet=globaldb&retrywrites=false&maxIdleTimeMS=120000&appName=@cosmojc854267@
-confirm in local.settings.json or save accordingly/opt/homebrew/Cellar/azure-cli/2.45.0/libexec/lib/python3.10/site-packages/paramiko/transport.py:236: CryptographyDeprecationWarning: Blowfish has been deprecated
-  "class": algorithms.Blowfish,
-[
-  {
-    "name": "FUNCTIONS_WORKER_RUNTIME",
-    "slotSetting": false,
-    "value": "python"
-  },
-  {
-    "name": "FUNCTIONS_EXTENSION_VERSION",
-    "slotSetting": false,
-    "value": "~3"
-  },
-  {
-    "name": "AzureWebJobsStorage",
-    "slotSetting": false,
-    "value": "DefaultEndpointsProtocol=https;EndpointSuffix=core.windows.net;AccountName=blobjc854267;AccountKey=whpTjEz3UTf5+f7P6SOrjWMW/gE6P+vhN50tgSm10dZo1N1BeVSoBJmcHyS2NYakP0P5zphOl89L+AStk+XiQQ=="
-  },
-  {
-    "name": "WEBSITE_CONTENTAZUREFILECONNECTIONSTRING",
-    "slotSetting": false,
-    "value": "DefaultEndpointsProtocol=https;EndpointSuffix=core.windows.net;AccountName=blobjc854267;AccountKey=whpTjEz3UTf5+f7P6SOrjWMW/gE6P+vhN50tgSm10dZo1N1BeVSoBJmcHyS2NYakP0P5zphOl89L+AStk+XiQQ=="
-  },
-  {
-    "name": "WEBSITE_CONTENTSHARE",
-    "slotSetting": false,
-    "value": "neighborlyappjc854267d602650ca3b4"
-  },
-  {
-    "name": "AzureWebJobsDashboard",
-    "slotSetting": false,
-    "value": "DefaultEndpointsProtocol=https;EndpointSuffix=core.windows.net;AccountName=blobjc854267;AccountKey=whpTjEz3UTf5+f7P6SOrjWMW/gE6P+vhN50tgSm10dZo1N1BeVSoBJmcHyS2NYakP0P5zphOl89L+AStk+XiQQ=="
-  },
-  {
-    "name": "MyDbConnection",
-    "slotSetting": false,
-    "value": "mongodb://cosmojc854267:MMsSgYTHx9trsxDz6oAhEYsGpyKIS27rgpZxiCGre766tQbDZKXrbMHRHFzC3UPUKpxf5mjg7B7xACDbD9PnsA==@cosmojc854267.mongo.cosmos.azure.com:10255/?ssl=true&replicaSet=globaldb&retrywrites=false&maxIdleTimeMS=120000&appName=@cosmojc854267@"
-  }
-]
