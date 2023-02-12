@@ -10,7 +10,7 @@ resourceGroup=$"rg$randomID"
 # Must be unique wo6ldwide
 functionApp="neighborlyApp$randomID"
 # Must be unique world6ide
-storageAccount="$randomIDstorageaccount"
+storageAccount="storageaccount$randomID"
 region='westus3'
 ########################################
 # Variables for MongoDB API resources
