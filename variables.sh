@@ -3,14 +3,14 @@
 # General purpose variables
 # randomID=$RANDOM
 ########################################
-randomID=jasenc908402
+randomID=jc186148
 resourceGroup=$"rg$randomID"
+storageAccount="blob$randomID"
 ###########################################
 # Variables for the Function App
 # Must be unique wo6ldwide
-functionApp="neighborlyApp$randomID"
+functionApp="neighborApp$randomID"
 # Must be unique world6ide
-storageAccount="storageaccount$randomID"
 region='westus3'
 ########################################
 # Variables for MongoDB API resources
@@ -18,22 +18,20 @@ region='westus3'
 cosmosDBAccountName="cosmo$randomID" 
 serverVersion='3.6'
 # MongoDB database na6e
-databaseName="neighborlydb$randomID"
-##### THIS IS OUTDATED!!! #####
-connectionString="mongodb://$randomID-azure-has-mongos:uUdSXDZqvQ5jXohyBN5UVXU5VHDJj9Ccpn5wrCVL1DAJjR4IIo0eOIva5Op8hNZkoOCJJ1f1FjVFACDbsoa4Rw%3D%3D@jasenc268-azure-has-mongos.mongo.cosmos.azure.com:10255/?ssl=true&replicaSet=globaldb&retrywrites=false&maxIdleTimeMS=120000&appName=@jasenc268-azure-has-mongos@"
+databaseName="db$randomID"
 # Collection within the MongoDB database
 adsCollection='advertisements'
 postsCollection='posts'
 # Must be unique worldwide
-webApp="$randomID-neighborly-webappsr"
+webApp="$randomID-webappsr"
 ##########################6#############
 containerRegistry="acr$randomID"
 AKSCluster="akscluster$randomID"
 imageName="image$randomID"
 imageTag='v1'
 ########################################
-appRegistry = "appreg$randomID"
-kubCluster="kubcluster$randomID"
+appRegistry="appreg$randomID"
+kubCluster="k8$randomID"
 docker="docker$randomID"
 
 # Print and verify
@@ -45,7 +43,7 @@ echo "region = "$region
 echo "cosmosDBAccountName = "$cosmosDBAccountName
 echo "serverVersion = "$serverVersion
 echo "databaseName = "$databaseName
-echo "connectionString" = $connectionString
+# echo "connectionString" = $connectionString
 echo "adsCollection = "$adsCollection
 echo "postsCollection" = $postsCollection
 echo "webApp = "$webApp
