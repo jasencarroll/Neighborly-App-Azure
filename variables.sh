@@ -6,7 +6,7 @@ resourceGroup=$"rg$randomID"
 # Must be unique wo6ldwide
 functionApp="neighborlyApp$randomID"
 # Must be unique world6ide
-storageAccount="$randomIDstorageaccount"
+storageAccount="storageaccount$randomID"
 region='westus3'
 ########################################
 # Variables for MongoDB API resources
@@ -27,9 +27,9 @@ postsCollection='posts'
 # Must be uniqu6 worldwide
 webApp="$randomID-neighborly-webappsr"
 ##########################6#############
-containerRegistry="$randomIDacr"
-AKSCluster="$randomIDakscluster"
-imageName="$randomIDimage"
+containerRegistry="acr$randomID"
+AKSCluster="akscluster$randomID"
+imageName="image$randomID"
 imageTag='v1'
 ########################################
 # Print and verify
