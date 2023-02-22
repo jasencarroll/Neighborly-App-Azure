@@ -10,4 +10,3 @@ pipenv install
 pipenv shell
 #test functionApp locally 
 func start -build [-p 7071] --verbose
-
