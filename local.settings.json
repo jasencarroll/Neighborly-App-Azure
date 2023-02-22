@@ -1,9 +1,8 @@
 {
   "IsEncrypted": false,
   "Values": {
-    "FUNCTIONS_WORKER_RUNTIME": "CfDJ8KvJ6DmYyMJCgkPKMHi9yggxobSNL+EiBudqjTbkN08MV8FPGx7WqKyJXi1vK5/3O48YnxQvGjJtBiH2gbzh8qUxrA2On+1JRf1xQeWwdKwATocSwT1CMT9SN2gtzXs0ZQ=="
-  },
-  "ConnectionStrings": {},
-
-  "AzureWebJobsStorage": ""
+    "FUNCTIONS_WORKER_RUNTIME": "python", 
+    "AzureWebJobsStorage": "DefaultEndpointsProtocol=https;EndpointSuffix=core.windows.net;AccountName=blobjc186148;AccountKey=x65TAZnY5Xfgb1gs2/YVqeaZ8J2+uAzndqocrdXbMmvqs8tloaQj9NqYjbmoBXBuD2mZBhR1SKeZ+AStPZzJxA==", 
+    "ConnectionStrings": "mongodb://cosmojc186148:VNTLW4DxnQYmuGrgNxemchah8k8VX2rUffJZqMSKi3N5ZcmYYPlvVI7zKWl5svVmJNeQOOZ2YkcbACDbwQlxew==@cosmojc186148.mongo.cosmos.azure.com:10255/?ssl=true&replicaSet=globaldb&retrywrites=false&maxIdleTimeMS=120000&appName=@cosmojc186148@" 
+  }
 }
