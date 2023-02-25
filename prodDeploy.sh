@@ -26,9 +26,9 @@ export FLASK_RUN=app.py
 
 # deploy the webapp
 az webapp up \
-  --resource-group $resourceGroup \
-  --name $webApp \
+  --resource-group "rgjc186148" \
+  --name "jc186148-webappsr" \
   --sku F1 \
-  --location $region
+  --location "westus3"
   --verbose
 
