@@ -22,7 +22,7 @@ You will need to install the following locally:
 - [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)
 - [Azure Tools for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack)
 
-On Mac, you can do this with:
+On Ubuntu, you can do this with:
 
 ```bash
 # install pipenv
@@ -34,6 +34,12 @@ brew update && brew install azure-cli
 # install azure function core tools 
 brew tap azure/functions
 brew install azure-functions-core-tools@3
+        
+# get the mongodb library
+sudo apt install mongo-tools
+
+# check if mongoimport lib exists
+mongoimport --version
 ```
 
 ## Project Instructions
@@ -84,11 +90,7 @@ We need to set up the Azure resource group, region, storage account, and an app 
 7. Import Sample Data Into MongoDB.
    - Download dependencies:
         ```bash
-        # get the mongodb library
-        brew install mongodb-community@4.2
-
-        # check if mongoimport lib exists
-        mongoimport --version
+            #relocated above
         ```
 
     - Import the data from the `sample_data` directory for Ads and Posts to initially fill your app.
