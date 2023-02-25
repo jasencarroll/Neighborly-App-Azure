@@ -4,8 +4,7 @@
     {
       "type": "eventGridTrigger",
       "name": "event",
-      "direction": "in",
+      "direction": "in"
     }
   ]
 }
-
