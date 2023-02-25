@@ -14,26 +14,24 @@ You can see an example of the deployed app below.
 
 ## Dependencies
 
-You will need to install the following locally:
-
-- [Pipenv](https://pypi.org/project/pipenv/)
-- [Visual Studio Code](https://code.visualstudio.com/download)
-- [Azure Function tools V3](https://docs.microsoft.com/en-us/azure/azure-functions/functions-run-local?tabs=windows%2Ccsharp%2Cbash#install-the-azure-functions-core-tools)
-- [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)
-- [Azure Tools for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack)
-
 On Ubuntu, you can do this with:
 
 ```bash
 # install pipenv
-brew install pipenv
+sudo apt install pipenv
 
 # install azure-cli
-brew update && brew install azure-cli
+sudo apt install azure-cli
 
 # install azure function core tools 
-brew tap azure/functions
-brew install azure-functions-core-tools@3
+curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
+
+sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-$(lsb_release -cs)-prod $(lsb_release -cs) main" > /etc/apt/sources.list.d/dotnetdev.list'
+
+sudo apt-get update
+
+sudo apt-get install azure-functions-core-tools-4
         
 # get the mongodb library
 sudo apt install mongo-tools
@@ -148,7 +146,7 @@ We need to set up the Azure resource group, region, storage account, and an app 
         pipenv shell
 
         # test func locally
-        func start
+        func start --build [-p 7071] --verbose
         ```
 
         You may need to change `"IsEncrypted"` to `false` in `local.settings.json` if this fails.
