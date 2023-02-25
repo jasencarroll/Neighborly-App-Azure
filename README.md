@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-For the final project, we are going to build an app called "Neighborly". Neighborly is a Python Flask-powered web application that allows neighbors to post advertisements for services and products they can offer.
+For the final project of the updated Udacity Full Stack Nanodegree, an app called "Neighborly" was built and deployed. Neighborly is a Python Flask-powered web application that allows neighbors to post advertisements for services and products they can offer.
 
 The Neighborly project is comprised of a front-end application that is built with the Python Flask micro framework. The application allows the user to view, create, edit, and delete the community advertisements.
 
@@ -12,9 +12,23 @@ You can see an example of the deployed app below.
 
 ![Deployed App](images/final-app.png)
 
-## Dependencies
+## Preface
+I completed the FullStack Nanodegree a while ago. I recently was fortunate enough to take the winter testing out various development environments with all three major desktop operating systems Windows, Ubuntu, and MacOS. My original configuration during the previous Nanodegree was using my MBPro and at the time Udacity was giving us servers to work off of running Ubuntu. I've ended up right back to that configuration with my own server. It's the best of both worlds and no one has to DevOps your solution from arm64 back to x86. Although incredibly effective, you also don't need to download iTerm and emulate it for x86 to reinstall all your packages again in x86 in order to get Azure Functions running locally on your arm64. I digress. 
 
-On Ubuntu, you can do this with:
+## Ubuntu Environment
+To keep this as simple as possible, I would HIGHLY advise building this on Ubuntu. If you need to ssh into a VM or server remember the ssh tunnel so you can check you local build. Azure will default to localhost:7071, making your login:
+```bash
+ssh -L [portForClient]:localhost:[portFromServer] [user]@[ip address] -p [ssh port]
+```
+
+In my case that would be:
+```bash
+ssh -L 3000:localhost:7071 jasen@XXX.XXX.X.XXX -p XX
+```
+
+
+## Getting Started
+On Ubuntu 20.04 LTS, you can do this with:
 
 ```bash
 # install pipenv
@@ -40,61 +54,24 @@ sudo apt install mongo-tools
 mongoimport --version
 ```
 
-## Project Instructions
+## Resources
+Ensure terminal is running in the project folder
+```bash
+bash resource.rh
+```
+the output should look like resourcesOutput.json
 
-In case you need to return to the project later on, it is suggested to store any commands you use so you can re-create your work. You should also take a look at the project rubric to be aware of any places you may need to take screenshots as proof of your work (or else keep your resource up and running until you have passed, which may incur costs).
+Copy the connection string to local.settings.json if not already there. 
 
-### I. Creating Azure Function App
+## Confirm import of Sample Data Into MongoDB.
+- Rources should import the data from the `sample_data` directory for Ads and Posts to initially fill your app.
 
-We need to set up the Azure resource group, region, storage account, and an app name before we can publish.
+        # finally import data from json files to the MongoDB API Collections
+        mongoimport --uri $connectionString --d $databaseName --collection $adsCollection --file="./sample_data/sampleAds.json" --jsonArray
+        mongoimport --uri $connectionString --d $databaseName --collection $postsCollection --file="./sample_data/samplePosts.json" --jsonArray
 
-1. Create a resource group.
-2. Create a storage account (within the previously created resource group and region).
-3. Create an Azure Function App within the resource group, region and storage account. 
-   - Note that app names need to be unique across all of Azure.
-   - Make sure it is a Linux app, with a Python runtime.
-
-    Example of successful output, if creating the app `myneighborlyapiv1`:
-
-    ```bash
-    Your Linux function app 'myneighborlyapiv1', that uses a consumption plan has been successfully created but is not active until content is published using Azure Portal or the Functions Core Tools.
-    ```
-
-4. Set up a Cosmos DB Account. You will need to use the same resource group, region and storage account, but can name the Cosmos DB account as you prefer. **Note:** This step may take a little while to complete (15-20 minutes in some cases).
-
-5. Create a MongoDB Database in CosmosDB Azure and two collections, one for `advertisements` and one for `posts`.
-6. Print out your connection string or get it from the Azure Portal. Copy/paste the **primary connection** string.  You will use it later in your application.
-
-    Example connection string output:
-    ```bash
-    bash-3.2$ Listing connection strings from COSMOS_ACCOUNT:
-    + az cosmosdb keys list -n neighborlycosmos -g neighborlyapp --type connection-strings
-    {
-    "connectionStrings": [
-        {
-        "connectionString": "AccountEndpoint=https://neighborlycosmos.documents.azure.com:443/;AccountKey=xxxxxxxxxxxx;",
-        "description": "Primary SQL Connection String"
-        },
-        {
-        "connectionString": "AccountEndpoint=https://neighborlycosmos.documents.azure.com:443/;AccountKey=xxxxxxxxxxxxx;",
-        "description": "Secondary SQL Connection String"
-        } 
+- Example successful import:
         
-        ... [other code omitted]
-    ]
-    }
-    ```
-
-7. Import Sample Data Into MongoDB.
-   - Download dependencies:
-        ```bash
-            #relocated above
-        ```
-
-    - Import the data from the `sample_data` directory for Ads and Posts to initially fill your app.
-
-        Example successful import:
-        ```
         Importing ads data ------------------->
         2020-05-18T23:30:39.018-0400  connected to: mongodb://neighborlyapp.mongo.cosmos.azure.com:10255/
         2020-05-18T23:30:40.344-0400  5 document(s) imported successfully. 0 document(s) failed to import.
@@ -102,7 +79,8 @@ We need to set up the Azure resource group, region, storage account, and an app 
         Importing posts data ------------------->
         2020-05-18T23:30:40.933-0400  connected to: mongodb://neighborlyapp.mongo.cosmos.azure.com:10255/
         2020-05-18T23:30:42.260-0400  4 document(s) imported successfully. 0 document(s) failed to import.
-        ```
+        
+## Confirm connection strings
 
 8. Hook up your connection string into the NeighborlyAPI server folder. You will need to replace the *url* variable with your own connection string you copy-and-pasted in the last step, along with some additional information.
     - Tip: Check out [this post](https://docs.microsoft.com/en-us/azure/cosmos-db/connect-mongodb-account) if you need help with what information is needed.
