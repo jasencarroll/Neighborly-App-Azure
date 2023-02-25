@@ -13,21 +13,25 @@ You can see an example of the deployed app below.
 ![Deployed App](images/final-app.png)
 
 ## Preface
-I completed the FullStack Nanodegree a while ago. I recently was fortunate enough to take the winter testing out various development environments with all three major desktop operating systems Windows, Ubuntu, and MacOS. My original configuration during the previous Nanodegree was using my MBPro and at the time Udacity was giving us servers to work off of running Ubuntu. I've ended up right back to that configuration with my own server. It's the best of both worlds and no one has to DevOps your solution from arm64 back to x86. Although incredibly effective, you also don't need to download iTerm and emulate it for x86 to reinstall all your packages again in x86 in order to get Azure Functions running locally on your arm64. I digress. 
+
+I completed the FullStack Nanodegree a while ago. I recently was fortunate enough to take the winter testing out various development environments with all three major desktop operating systems Windows, Ubuntu, and MacOS. My original configuration during the previous Nanodegree was using my MBPro and at the time Udacity was giving us servers to work off of running Ubuntu. I've ended up right back to that configuration with my own server. It's the best of both worlds and no one has to DevOps your solution from arm64 back to x86. Although incredibly effective, you also don't need to download iTerm and emulate it for x86 to reinstall all your packages again in x86 in order to get Azure Functions running locally on your arm64. I digress.
 
 ## Ubuntu Environment
+
 To keep this as simple as possible, I would HIGHLY advise building this on Ubuntu. If you need to ssh into a VM or server remember the ssh tunnel so you can check you local build. Azure will default to localhost:7071, making your login:
+
 ```bash
 ssh -L [portForClient]:localhost:[portFromServer] [user]@[ip address] -p [ssh port]
 ```
 
 In my case that would be:
+
 ```bash
 ssh -L 3000:localhost:7071 jasen@XXX.XXX.X.XXX -p XX
 ```
 
-
 ## Getting Started
+
 On Ubuntu 20.04 LTS, you can do this with:
 
 ```bash
@@ -55,31 +59,39 @@ mongoimport --version
 ```
 
 ## Resources
+
 Ensure terminal is running in the project folder
+
 ```bash
 bash resource.rh
 ```
+
 the output should look like resourcesOutput.json
 
-Copy the connection string to local.settings.json if not already there. 
+Copy the connection string to local.settings.json if not already there.
 
-## Confirm import of Sample Data Into MongoDB.
+## Confirm import of Sample Data Into MongoDB
+
 - Rources should import the data from the `sample_data` directory for Ads and Posts to initially fill your app.
 
-        # finally import data from json files to the MongoDB API Collections
-        mongoimport --uri $connectionString --d $databaseName --collection $adsCollection --file="./sample_data/sampleAds.json" --jsonArray
-        mongoimport --uri $connectionString --d $databaseName --collection $postsCollection --file="./sample_data/samplePosts.json" --jsonArray
+    ```
+    # finally import data from json files to the MongoDB API Collections
+    mongoimport --uri $connectionString --d $databaseName --collection $adsCollection --file="./sample_data/sampleAds.json" --jsonArray
+    mongoimport --uri $connectionString --d $databaseName --collection $postsCollection --file="./sample_data/samplePosts.json" --jsonArray
+    ```
 
 - Example successful import:
-        
-        Importing ads data ------------------->
-        2020-05-18T23:30:39.018-0400  connected to: mongodb://neighborlyapp.mongo.cosmos.azure.com:10255/
-        2020-05-18T23:30:40.344-0400  5 document(s) imported successfully. 0 document(s) failed to import.
-        ...
-        Importing posts data ------------------->
-        2020-05-18T23:30:40.933-0400  connected to: mongodb://neighborlyapp.mongo.cosmos.azure.com:10255/
-        2020-05-18T23:30:42.260-0400  4 document(s) imported successfully. 0 document(s) failed to import.
-        
+
+    ```
+    Importing ads data ------------------->
+    2020-05-18T23:30:39.018-0400  connected to: mongodb://neighborlyapp.mongo.cosmos.azure.com:10255/
+    2020-05-18T23:30:40.344-0400  5 document(s) imported successfully. 0 document(s) failed to import.
+    ...
+    Importing posts data ------------------->
+    2020-05-18T23:30:40.933-0400  connected to: mongodb://neighborlyapp.mongo.cosmos.azure.com:10255/
+    2020-05-18T23:30:42.260-0400  4 document(s) imported successfully. 0 document(s) failed to import.
+    ```
+
 ## Confirm connection strings
 
 8. Hook up your connection string into the NeighborlyAPI server folder. You will need to replace the *url* variable with your own connection string you copy-and-pasted in the last step, along with some additional information.
@@ -129,7 +141,7 @@ Copy the connection string to local.settings.json if not already there.
 
         You may need to change `"IsEncrypted"` to `false` in `local.settings.json` if this fails.
 
-        At this point, Azure functions are hosted in localhost:7071.  You can use the browser or Postman to see if the GET request works.  For example, go to the browser and type in: 
+        At this point, Azure functions are hosted in localhost:7071.  You can use the browser or Postman to see if the GET request works.  For example, go to the browser and type in:
 
         ```bash
         # example endpoint for all advertisements
@@ -144,6 +156,7 @@ Copy the connection string to local.settings.json if not already there.
         The result may give you a live url in this format, or you can check in Azure portal for these as well:
 
         Expected output if deployed successfully:
+
         ```bash
         Functions in <APP_NAME>:
             createAdvertisement - [httpTrigger]
@@ -171,13 +184,14 @@ Copy the connection string to local.settings.json if not already there.
 
         **Note:** It may take a minute or two for the endpoints to get up and running if you visit the URLs.
 
-        Save the function app url **https://<APP_NAME>.azurewebsites.net/api/** since you will need to update that in the client-side of the application.
+        Save the function app url **<https://<APP_NAME>.azurewebsites.net/api/>** since you will need to update that in the client-side of the application.
 
 ### II. Deploying the client-side Flask web application
 
 We are going to update the Client-side `settings.py` with published API endpoints. First navigate to the `settings.py` file in the NeighborlyFrontEnd/ directory.
 
 Use a text editor to update the API_URL to your published url from the last step.
+
 ```bash
 # Inside file settings.py
 
