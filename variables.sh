@@ -23,7 +23,7 @@ databaseName="db$randomID"
 adsCollection='advertisements'
 postsCollection='posts'
 # Must be unique worldwide
-webApp="$randomID-webappsr"
+webApp="$randomID-webapp"
 ##########################6#############
 containerRegistry="acr$randomID"
 AKSCluster="akscluster$randomID"
