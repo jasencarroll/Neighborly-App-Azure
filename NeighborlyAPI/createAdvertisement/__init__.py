@@ -1,5 +1,9 @@
 import azure.functions as func
+import logging
+import json
 import pymongo
+from bson.json_util import dumps
+from bson.objectid import ObjectId
 
 def main(req: func.HttpRequest) -> func.HttpResponse:
 
@@ -16,8 +20,8 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 
             return func.HttpResponse(req.get_body())
 
-        except ValueError:
-            print("could not connect to mongodb")
+        except Exception as e:
+            logging.error(e)
             return func.HttpResponse('Could not connect to mongodb', status_code=500)
 
     else:
