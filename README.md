@@ -12,24 +12,18 @@ You can see an example of the deployed app below.
 
 ![Deployed App](images/final-app.png)
 
-## Preface
-
-I completed the FullStack Nanodegree a while ago. I recently was fortunate enough to take the winter testing out various development environments with all three major desktop operating systems Windows, Ubuntu, and MacOS. My original configuration during the previous Nanodegree was using my MacOS and it really forced me to fall in love with it. At the time Udacity was giving us servers to work off of running Ubuntu. I got everything running on Apple Silicone and recently decided to put Ubuntu on my PC with a server backend.
-
-My engineering day job is on Windows - let's not talk about it.
-
 ## Ubuntu Environment
 
 To keep this as simple as possible, I would HIGHLY advise building this on Ubuntu. If you need to ssh into a VM or server remember the ssh tunnel so you can check you local build. Azure will default to localhost:7071, making your login:
 
 ```bash
-$ ssh -L [portForClient]:localhost:[portFromServer] [user]@[ip address] -p [ssh port]
+ssh -L [portForClient]:localhost:[portFromServer] [user]@[ip address] -p [ssh port]
 ```
 
 In my case that would be:
 
 ```bash
-$ ssh -L 3000:localhost:7071 jasen@XXX.XXX.X.XXX -p XX
+ssh -L 3000:localhost:7071 jasen@XXX.XXX.X.XXX -p XX
 ```
 
 ## Getting Started
@@ -99,12 +93,12 @@ Copy the connection string to local.settings.json if not already there.
 ## Confirm connection strings
 
 ```bash
-$ echo $connectionString
+echo $connectionString
 ```
 
 Expected output if deployed successfully:
 
-If that returns nothing, reload the variable. 
+If that returns nothing, reload the variable.
 
 ```bash
 $ connectionString=$(az cosmosdb keys list \
@@ -118,6 +112,7 @@ $ printf "confirm in local.settings.json or save accordingly"
 ```
 
 ## Update HTTP Trigger Urls
+
 Updating the `init.py` and `function.json` for bindings to your database, respectively:
 
 ```python
@@ -187,10 +182,12 @@ python3 app.py
 
 You can now visit Flask's localhost port and ensure that your front end loads.
 
-# Deploy Live
-Ok, shut down that backend server from `azure func` and the Flask app `python3 app.py` if you haven't already. 
+## Deploy Live
 
-#### For the API:
+Ok, shut down that backend server from `azure func` and the Flask app `python3 app.py` if you haven't already.
+
+### For the API
+
 ```bash
 func azure functionapp publish $functionApp
 ```
@@ -222,8 +219,10 @@ Functions in <APP_NAME>:
 
 ```
 
-#### For the Flask App:
+### For the Flask App
+
 Update the connection to the live API in your settings.py
+
 ```python
 API_URL="https://$functionApp.azurewebsites.net/api"
 ```
