@@ -19,4 +19,4 @@ API_VERSION = 'v1'
 # API_URL = "http://localhost:7071/api"
 
 # where APP_NAME is your Azure Function App name 
-API_URL="https://neighborAppjc186148.azurewebsites.net/api"
+API_URL="https://neighborAppjc186148.azurewebsites.net/api/"

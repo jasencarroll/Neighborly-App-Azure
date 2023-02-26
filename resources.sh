@@ -98,5 +98,5 @@ az functionapp config appsettings set \
 --setting MyDbConnection=$connectionString
 
 # finally import data from json files to the MongoDB API Collections
-mongoimport --uri $connectionString --d $databaseName --collection $adsCollection --file="./sample_data/sampleAds.json" --jsonArray
-mongoimport --uri $connectionString --d $databaseName --collection $postsCollection --file="./sample_data/samplePosts.json" --jsonArray
+mongoimport --uri $connectionString --db $databaseName --collection $adsCollection --file="./sample_data/sampleAds.json" --jsonArray
+mongoimport --uri $connectionString --db $databaseName --collection $postsCollection --file="./sample_data/samplePosts.json" --jsonArray
