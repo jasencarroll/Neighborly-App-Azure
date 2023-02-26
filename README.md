@@ -12,10 +12,6 @@ You can see an example of the deployed app below.
 
 ![Deployed App](images/final-app.png)
 
-## Preface
-
-I completed the FullStack Nanodegree a while ago. I recently was fortunate enough to take the winter testing out various development environments with all three major desktop operating systems Windows, Ubuntu, and MacOS. My original configuration during the previous Nanodegree was using my MBPro and at the time Udacity was giving us servers to work off of running Ubuntu. I've ended up right back to that configuration with my own server. It's the best of both worlds and no one has to DevOps your solution from arm64 back to x86. Although incredibly effective, you also don't need to download iTerm and emulate it for x86 to reinstall all your packages again in x86 in order to get Azure Functions running locally on your arm64. I digress.
-
 ## Ubuntu Environment
 
 To keep this as simple as possible, I would HIGHLY advise building this on Ubuntu. If you need to ssh into a VM or server remember the ssh tunnel so you can check you local build. Azure will default to localhost:7071, making your login:
