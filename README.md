@@ -12,18 +12,24 @@ You can see an example of the deployed app below.
 
 ![Deployed App](images/final-app.png)
 
+## Preface
+
+I completed the FullStack Nanodegree a while ago. I recently was fortunate enough to take the winter testing out various development environments with all three major desktop operating systems Windows, Ubuntu, and MacOS. My original configuration during the previous Nanodegree was using my MacOS and it really forced me to fall in love with it. At the time Udacity was giving us servers to work off of running Ubuntu. I got everything running on Apple Silicone and recently decided to put Ubuntu on my PC with a server backend.
+
+My engineering day job is on Windows - let's not talk about it.
+
 ## Ubuntu Environment
 
 To keep this as simple as possible, I would HIGHLY advise building this on Ubuntu. If you need to ssh into a VM or server remember the ssh tunnel so you can check you local build. Azure will default to localhost:7071, making your login:
 
 ```bash
-ssh -L [portForClient]:localhost:[portFromServer] [user]@[ip address] -p [ssh port]
+$ ssh -L [portForClient]:localhost:[portFromServer] [user]@[ip address] -p [ssh port]
 ```
 
 In my case that would be:
 
 ```bash
-ssh -L 3000:localhost:7071 jasen@XXX.XXX.X.XXX -p XX
+$ ssh -L 3000:localhost:7071 jasen@XXX.XXX.X.XXX -p XX
 ```
 
 ## Getting Started
@@ -32,23 +38,23 @@ On Ubuntu 20.04 LTS, you can do this with:
 
 ```bash
 # install pipenv
-sudo apt install pipenv
+$ sudo apt install pipenv
 
 # install azure-cli
-sudo apt install azure-cli
+$ sudo apt install azure-cli
 
 # install azure function core tools 
-curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
-sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
+$ curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+$ sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
 
-sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-$(lsb_release -cs)-prod $(lsb_release -cs) main" > /etc/apt/sources.list.d/dotnetdev.list'
+$ sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-$(lsb_release -cs)-prod $(lsb_release -cs) main" > /etc/apt/sources.list.d/dotnetdev.list'
 
-sudo apt-get update
+$ sudo apt-get update
 
-sudo apt-get install azure-functions-core-tools-4
+$ sudo apt-get install azure-functions-core-tools-4
         
 # get the mongodb library
-sudo apt install mongo-tools
+$ sudo apt install mongo-tools
 
 # check if mongoimport lib exists
 mongoimport --version
@@ -72,15 +78,15 @@ Copy the connection string to local.settings.json if not already there.
 
 - Rources should import the data from the `sample_data` directory for Ads and Posts to initially fill your app.
 
-    ```
-    # finally import data from json files to the MongoDB API Collections
-    mongoimport --uri $connectionString --d $databaseName --collection $adsCollection --file="./sample_data/sampleAds.json" --jsonArray
-    mongoimport --uri $connectionString --d $databaseName --collection $postsCollection --file="./sample_data/samplePosts.json" --jsonArray
+    ```bash
+    # import data from json files to the MongoDB API Collections
+    $ mongoimport --uri $connectionString --d $databaseName --collection $adsCollection --file="./sample_data/sampleAds.json" --jsonArray
+    $ mongoimport --uri $connectionString --d $databaseName --collection $postsCollection --file="./sample_data/samplePosts.json" --jsonArray
     ```
 
 - Example successful import:
 
-    ```
+    ```bash
     Importing ads data ------------------->
     2020-05-18T23:30:39.018-0400  connected to: mongodb://neighborlyapp.mongo.cosmos.azure.com:10255/
     2020-05-18T23:30:40.344-0400  5 document(s) imported successfully. 0 document(s) failed to import.
@@ -93,54 +99,100 @@ Copy the connection string to local.settings.json if not already there.
 ## Confirm connection strings
 
 ```bash
-connectionString=$(az cosmosdb keys list \
---type connection-strings \
---name $cosmosDBAccountName \
---resource-group $resourceGroup \
---query 'connectionStrings[0].connectionString' \
---output tsv) 
-
-echo $connectionString
-printf "confirm in local.settings.json or save accordingly"
+$ echo $connectionString
 ```
 
-Add the connection string to each HTTP Trigger and ensure each trigger is accessing the right data.
+Expected output if deployed successfully:
 
-## Local Deploy
+If that returns nothing, reload the variable. 
 
-- Install dependencies in normal environments if needed.
 ```bash
-# move over to the client-side
-cd NeighborlyAPI
-# install dependencies
-python3 -m pip install -r requirements.txt
-# create a virtualenv
-cd ..
-# install dependencies
-pipenv install
-# go into the shell
-pipenv shell
-# move into the API
-cd NeighborlyAPI
-#install dependencies
-python3 -m pip install -r requirements.txt
-# move over to the client-side
-cd ../NeighborlyFrontEnd
-#install dependencies
-python3 -m pip install -r requirements.txt
+$ connectionString=$(az cosmosdb keys list \
+    --type connection-strings \
+    --name $cosmosDBAccountName \
+    --resource-group $resourceGroup \
+    --query 'connectionStrings[0].connectionString' \
+    --output tsv) 
+$ echo $connectionString
+$ printf "confirm in local.settings.json or save accordingly"
 ```
 
-### Backend/API
+## Update HTTP Trigger Urls
+Updating the `init.py` and `function.json` for bindings to your database, respectively:
+
+```python
+url = os.environ["connectionString"] # Change the Variable name, as applicable to you
+client = pymongo.MongoClient(url)
+database = client['databaseName'] # Change the MongoDB name per $databaseName variable
+collection = database['adsCollection']    # Change the collection name per $collectionName variable
+```
+
+## Deploy Backend/API Locally
 
 ```bash
-# move into the API
+# cd into NeighborlyAPI
 cd NeighborlyAPI
+
+# Needed only for local run
+python3 -m pip install -r requirements.txt
+
 # install dependencies
 pipenv install
+
 # go into the shell
 pipenv shell
-#test functionApp locally 
-func start -build [-p 7071] --verbose
+
+# Needed now for virtualenv
+python3 -m pip install -r requirements.txt
+
+# test func locally, build it, stay on port 7071, show me everything. 
+func start --build --p 7071 --verbose
+
+```
+
+You may need to change `"IsEncrypted"` to `false` in `local.settings.json` if this fails.
+
+At this point, Azure functions are hosted in localhost:7071.  You can use the browser or Postman to see if the GET request works.  For example, go to the browser and type in:
+
+```bash
+# Note: change port as applicable
+
+# example endpoint for all advertisements
+http://localhost:7071/api/getadvertisements
+
+#example endpoint for all posts
+http://localhost:7071/api/getposts
+```
+
+## Deploy Front End Locally
+
+Leave that terminal session alone for a minute. Make another one and get to the front end folder on the device you'll host it from. You'll want to be in the Front End directory for this new terminal session.If you need to tunnel annother SSH it's good to know that flask will use port 5000.
+
+```bash
+# Needed only for local run
+python3 -m pip install -r requirements.txt
+
+# Install packages into the pipenv virtual environment and generates the Pipfile.lock with a specific set of the packages
+pipenv install 
+
+# Activate/open the virtual environment
+pipenv shell
+
+# Needed only for local run
+python3 -m pip install -r requirements.txt
+
+# Run Flask
+python3 app.py
+```
+
+You can now visit Flask's localhost port and ensure that your front end loads.
+
+# Deploy Live
+Ok, shut down that backend server from `azure func` and the Flask app `python3 app.py` if you haven't already. 
+
+#### For the API:
+```bash
+func azure functionapp publish $functionApp
 ```
 
 Expected output if deployed successfully:
@@ -170,63 +222,54 @@ Functions in <APP_NAME>:
 
 ```
 
-**Note:** It may take a minute or two for the endpoints to get up and running if you visit the URLs.
-
-Save the function app url **<https://<APP_NAME>.azurewebsites.net/api/>** since you will need to update that in the client-side of the application.
-
-### FrontEnd/Client
-
-```bash
-# move over to the client-side
-cd ..
-# go into shell
-pipenv shell
-# move over to the client-side
-cd ../NeighborlyFrontEnd
-# test the webapp locally
-python app.py
+#### For the Flask App:
+Update the connection to the live API in your settings.py
+```python
+API_URL="https://$functionApp.azurewebsites.net/api"
 ```
 
-Test everything with Postman.
+You'll need to do the same for the RSS feed in app.py
 
-## Live Deploy
-
-### Backend/API
-```bash
-# Go into the API - assuming already in pipenv shell
-cd ../NeighborlyAPI
-#install dependencies
-python3 -m pip install -r requirements.txt
-#test functionApp publicly  
-func azure functionapp publish $functionApp
+```python
+@app.route('/rss')
+def rss():
+    fg = FeedGenerator()
+    fg.title('Feed title')
+    fg.description('Feed Description')
+    fg.link(href='$functionApp.azurewebsites.net/')
 ```
 
-### FrontEnd/Client
+Now it's ready
 
-Use a text editor to update the API_URL to your published url from the last step.
-
-```bash
-# Inside file settings.py
-
-# ------- For Local Testing -------
-#API_URL = "http://localhost:7071/api"
-
-# ------- For production -------
-# where APP_NAME is your Azure Function App name 
-API_URL="https://<APP_NAME>.azurewebsites.net/api"
-```
 ```bash
 az webapp up \
---resource-group $resourceGroup \
---name $webApp \
---runtime="Python:3.8"
---sku=F1
---location $region
+    --resource-group $resourceGroup \
+    --name $webApp \
+    --runtime="Python:3.8"
+    --sku=F1
+    --location $region
 ```
 
 Expected output if deployed successfully:
 
-### III. CI/CD Deployment
+```bash
+{
+  "URL": "http://$webApp.azurewebsites.net",
+  "appserviceplan": "jasen.c7_asp_4164",
+  "location": $region,
+  "name": $webApp,
+  "os": "Linux",
+  "resourcegroup": $resourceGroup,
+  "runtime_version": "python|3.9",
+  "runtime_version_detected": "-",
+  "sku": "FREE",
+  "src_path": $workingFolder
+}
+```
+
+**Note:** It may take a minute or two for the front-end to get up and running if you visit the related URL.
+
+## CI/CD Deployment
 
 1. Create an Azure Registry and dockerize your Azure Functions. Then, push the container to the Azure Container Registry.
 2. Create a Kubernetes cluster, and verify your connection to it with `kubectl get nodes`.
