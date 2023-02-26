@@ -242,11 +242,10 @@ Now it's ready
 
 ```bash
 az webapp up \
-    --resource-group $resourceGroup \
-    --name $webApp \
-    --runtime="Python:3.8"
-    --sku=F1
-    --location $region
+    --resource-group=$resourceGroup \
+    --name=$webApp \
+    --sku=F1 \
+    --location=$region
 ```
 
 Expected output if deployed successfully:
