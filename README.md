@@ -63,6 +63,8 @@ mongoimport --version
 Ensure terminal is running in the project folder
 
 ```bash
+source variables.sh
+
 bash resource.rh
 ```
 
@@ -94,101 +96,116 @@ Copy the connection string to local.settings.json if not already there.
 
 ## Confirm connection strings
 
-8. Hook up your connection string into the NeighborlyAPI server folder. You will need to replace the *url* variable with your own connection string you copy-and-pasted in the last step, along with some additional information.
-    - Tip: Check out [this post](https://docs.microsoft.com/en-us/azure/cosmos-db/connect-mongodb-account) if you need help with what information is needed.
-    - Go to each of the `__init__.py` files in getPosts, getPost, getAdvertisements, getAdvertisement, deleteAdvertisement, updateAdvertisement, createAdvertisements and replace your connection string. You will also need to set the related `database` and `collection` appropriately.
+```bash
+connectionString=$(az cosmosdb keys list \
+--type connection-strings \
+--name $cosmosDBAccountName \
+--resource-group $resourceGroup \
+--query 'connectionStrings[0].connectionString' \
+--output tsv) 
 
-    ```bash
-    # inside getAdvertisements/__init__.py
+echo $connectionString
+printf "confirm in local.settings.json or save accordingly"
+```
 
-    def main(req: func.HttpRequest) -> func.HttpResponse:
-        logging.info('Python getAdvertisements trigger function processed a request.')
+Add the connection string to each HTTP Trigger and ensure each trigger is accessing the right data.
 
-        try:
-            # copy/paste your primary connection url here
-            #-------------------------------------------
-            url = ""
-            #--------------------------------------------
+## Local Deploy
 
-            client=pymongo.MongoClient(url)
+- Install dependencies in normal environments if needed.
+```bash
+# move over to the client-side
+cd NeighborlyAPI
+# install dependencies
+python3 -m pip install -r requirements.txt
+# create a virtualenv
+cd ..
+# install dependencies
+pipenv install
+# go into the shell
+pipenv shell
+# move into the API
+cd NeighborlyAPI
+#install dependencies
+python3 -m pip install -r requirements.txt
+# move over to the client-side
+cd ../NeighborlyFrontEnd
+#install dependencies
+python3 -m pip install -r requirements.txt
+```
 
-            database = None # Feed the correct key for the database name to the client
-            collection = None # Feed the correct key for the collection name to the database
+### Backend/API
 
-            ... [other code omitted]
-            
-    ```
+```bash
+# move into the API
+cd NeighborlyAPI
+# install dependencies
+pipenv install
+# go into the shell
+pipenv shell
+#test functionApp locally 
+func start -build [-p 7071] --verbose
+```
 
-    Make sure to do the same step for the other 6 HTTP Trigger functions.
+Expected output if deployed successfully:
 
-9. Deploy your Azure Functions.
+```bash
+Functions in <APP_NAME>:
+    createAdvertisement - [httpTrigger]
+        Invoke url: https://<APP_NAME>.azurewebsites.net/api/createadvertisement
 
-    1. Test it out locally first.
+    deleteAdvertisement - [httpTrigger]
+        Invoke url: https://<APP_NAME>.azurewebsites.net/api/deleteadvertisement
 
-        ```bash
-        # cd into NeighborlyAPI
-        cd NeighborlyAPI
+    getAdvertisement - [httpTrigger]
+        Invoke url: https://<APP_NAME>.azurewebsites.net/api/getadvertisement
 
-        # install dependencies
-        pipenv install
+    getAdvertisements - [httpTrigger]
+        Invoke url: https://<APP_NAME>.azurewebsites.net/api/getadvertisements
 
-        # go into the shell
-        pipenv shell
+    getPost - [httpTrigger]
+        Invoke url: https://<APP_NAME>.azurewebsites.net/api/getpost
 
-        # test func locally
-        func start --build [-p 7071] --verbose
-        ```
+    getPosts - [httpTrigger]
+        Invoke url: https://<APP_NAME>.azurewebsites.net/api/getposts
 
-        You may need to change `"IsEncrypted"` to `false` in `local.settings.json` if this fails.
+    updateAdvertisement - [httpTrigger]
+        Invoke url: https://<APP_NAME>.azurewebsites.net/api/updateadvertisement
 
-        At this point, Azure functions are hosted in localhost:7071.  You can use the browser or Postman to see if the GET request works.  For example, go to the browser and type in:
+```
 
-        ```bash
-        # example endpoint for all advertisements
-        http://localhost:7071/api/getadvertisements
+**Note:** It may take a minute or two for the endpoints to get up and running if you visit the URLs.
 
-        #example endpoint for all posts
-        http://localhost:7071/api/getposts
-        ```
+Save the function app url **<https://<APP_NAME>.azurewebsites.net/api/>** since you will need to update that in the client-side of the application.
 
-    2. Now you can deploy functions to Azure by publishing your function app.
+### FrontEnd/Client
 
-        The result may give you a live url in this format, or you can check in Azure portal for these as well:
+```bash
+# move over to the client-side
+cd ..
+# go into shell
+pipenv shell
+# move over to the client-side
+cd ../NeighborlyFrontEnd
+# test the webapp locally
+python app.py
+```
 
-        Expected output if deployed successfully:
+Test everything with Postman.
 
-        ```bash
-        Functions in <APP_NAME>:
-            createAdvertisement - [httpTrigger]
-                Invoke url: https://<APP_NAME>.azurewebsites.net/api/createadvertisement
+## Live Deploy
 
-            deleteAdvertisement - [httpTrigger]
-                Invoke url: https://<APP_NAME>.azurewebsites.net/api/deleteadvertisement
+### Backend/API
+```bash
+# Go into the API - assuming already in pipenv shell
+cd ../NeighborlyAPI
+#install dependencies
+python3 -m pip install -r requirements.txt
+#test functionApp publicly  
+func azure functionapp publish $functionApp
+```
 
-            getAdvertisement - [httpTrigger]
-                Invoke url: https://<APP_NAME>.azurewebsites.net/api/getadvertisement
-
-            getAdvertisements - [httpTrigger]
-                Invoke url: https://<APP_NAME>.azurewebsites.net/api/getadvertisements
-
-            getPost - [httpTrigger]
-                Invoke url: https://<APP_NAME>.azurewebsites.net/api/getpost
-
-            getPosts - [httpTrigger]
-                Invoke url: https://<APP_NAME>.azurewebsites.net/api/getposts
-
-            updateAdvertisement - [httpTrigger]
-                Invoke url: https://<APP_NAME>.azurewebsites.net/api/updateadvertisement
-
-        ```
-
-        **Note:** It may take a minute or two for the endpoints to get up and running if you visit the URLs.
-
-        Save the function app url **<https://<APP_NAME>.azurewebsites.net/api/>** since you will need to update that in the client-side of the application.
-
-### II. Deploying the client-side Flask web application
-
-We are going to update the Client-side `settings.py` with published API endpoints. First navigate to the `settings.py` file in the NeighborlyFrontEnd/ directory.
+### FrontEnd/Client
 
 Use a text editor to update the API_URL to your published url from the last step.
 
@@ -202,19 +219,22 @@ Use a text editor to update the API_URL to your published url from the last step
 # where APP_NAME is your Azure Function App name 
 API_URL="https://<APP_NAME>.azurewebsites.net/api"
 ```
+```bash
+az webapp up \
+--resource-group $resourceGroup \
+--name $webApp \
+--runtime="Python:3.8"
+--sku=F1
+--location $region
+```
+
+Expected output if deployed successfully:
 
 ### III. CI/CD Deployment
 
-1. Deploy your client app. **Note:** Use a **different** app name here to deploy the front-end, or else you will erase your API. From within the `NeighborlyFrontEnd` directory:
-    - Install dependencies with `pipenv install`
-    - Go into the pip env shell with `pipenv shell`
-    - Deploy your application to the app service. **Note:** It may take a minute or two for the front-end to get up and running if you visit the related URL.
-
-    Make sure to also provide any necessary information in `settings.py` to move from localhost to your deployment.
-
-2. Create an Azure Registry and dockerize your Azure Functions. Then, push the container to the Azure Container Registry.
-3. Create a Kubernetes cluster, and verify your connection to it with `kubectl get nodes`.
-4. Deploy app to Kubernetes, and check your deployment with `kubectl config get-contexts`.
+1. Create an Azure Registry and dockerize your Azure Functions. Then, push the container to the Azure Container Registry.
+2. Create a Kubernetes cluster, and verify your connection to it with `kubectl get nodes`.
+3. Deploy app to Kubernetes, and check your deployment with `kubectl config get-contexts`.
 
 ### IV. Event Hubs and Logic App
 
