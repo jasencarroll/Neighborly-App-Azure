@@ -26,8 +26,8 @@ export FLASK_RUN=app.py
 az webapp up \
   --resource-group "rgjc186148" \
   --name "jc186148-webappsr" \
-  --runtime "Python:3.8"
-  --sku F1 \
-  --location "westus3"
+  --runtime "python:3.7"
+  --sku=F1 \
+  --location "westus3" \
   --verbose
 
