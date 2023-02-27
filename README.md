@@ -244,7 +244,7 @@ Now it's ready
 az webapp up \
     --resource-group=$resourceGroup \
     --name=$webApp \
-    --runtime="Python:3.8" \
+    --runtime="python:3.7" \
     --sku=F1 \
     --location=$region
 ```
