@@ -1,21 +1,7 @@
 #! /bin/sh
-## ENSURE THAT YOU KNOW LOGGED INTO DOCKER APPREG
-
-#! /bin/sh
-## ENSURE THAT YOU KNOW YOUR WEBAPP IP ADDRESS PRIOR TO RUNNING SCRIPT ##
-## AND HAVE SAVED ACCORDINGLY IN YOUR settings.py ##
-## IP_ADDRESS is the dockerized function endpoint
-
-cd NeighborlyFrontEnd
-
-# go into the shell
-pipenv shell
-
-#login to azure
-az login
-
-# Create a container with Azure
-az acr 
+# before we start load variables
+chmod +x variables.sh
+source variables.sh
 
 # Run from within the existing Function project directory.
 # Creates a Dockerfile
@@ -23,7 +9,7 @@ func init --docker-only --python
 
 # SYNTAX 
 # docker build -t <name:tag> <path>
-docker build -t $imageName:$imageTag .
+docker build --platform linux/amd64 -t $imageName:$imageTag .
 
 docker run -p 7071:7071 -it $imageName:$imageTag
 
