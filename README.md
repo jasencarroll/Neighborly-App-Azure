@@ -259,7 +259,7 @@ Expected output if deployed successfully:
   "name": $webApp,
   "os": "Linux",
   "resourcegroup": $resourceGroup,
-  "runtime_version": "python|3.9",
+  "runtime_version": "python|3.7",
   "runtime_version_detected": "-",
   "sku": "FREE",
   "src_path": $workingFolder
