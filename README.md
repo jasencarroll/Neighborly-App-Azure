@@ -270,15 +270,50 @@ Expected output if deployed successfully:
 
 ## CI/CD Deployment
 
+```bash
+cd NeighborlyAPI
+pipenv shell
+az login
+source ../variables.sh
+bash container.sh
+```
+
+The above code should accomplish the following:
+
 1. Create an Azure Registry and dockerize your Azure Functions. Then, push the container to the Azure Container Registry.
 2. Create a Kubernetes cluster, and verify your connection to it with `kubectl get nodes`.
 3. Deploy app to Kubernetes, and check your deployment with `kubectl config get-contexts`.
 
 ### IV. Event Hubs and Logic App
 
-1. Create a Logic App that watches for an HTTP trigger. When the HTTP request is triggered, send yourself an email notification.
+1. Create a Logic App that watches for an HTTP trigger. It's important to pick a Consumption Plan on this one. When the HTTP request is triggered, send yourself an email notification.
+    -- New Resource > Logic App > Create Logic App > go to resource > Logic Apps Designer > HTTP Trigger
+    -- Updload a sample payload for Azure to determine the Request Body JSON Schema
+
+    ```json
+    {
+        "_id": "5ec34b22b5f7f6eac5f2ec3e",
+        "title": "[testaccount111] Honda Tacoma pick up - low milage.",
+        "description": "Manual transmission.  Great truck, clean title. Cash only.",
+        "price": "$3,587.05",
+        "city": "Poolsville"
+    }
+    ```
+
+    -- Use this [resource](https://learn.microsoft.com/en-us/azure/app-service/tutorial-send-email?tabs=python#code-try-1) to learn more.
+
+    ```bash
+    az webapp config appsettings set \
+        --name=$webApp \
+        --resource-group=$resourceGroup \
+        --settingsGIC_APP_URL=$HTTP_POST_URL
+    ```
+
+    -- Back in Preview Design View - search "email" and SendGrid's email will come up. 
+    -- Add your API URL from Sendgrid's Python Web API and other information. 
+
 2. Create a namespace for event hub in the portal. You should be able to obtain the namespace URL.
-3. Add the connection string of the event hub to the Azure Function.
+3. Connect Azure Function with Event Grid Topic
 
 ### V.  Cleaning Up Your Services
 
