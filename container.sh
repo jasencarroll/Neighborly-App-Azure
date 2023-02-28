@@ -11,7 +11,7 @@ func init --docker-only --python
 # docker build -t <name:tag> <path>
 docker build --platform linux/amd64 -t $imageName:$imageTag .
 
-docker run -p 7071:7071 -it $imageName:$imageTag
+# docker run -p 7071:7071 -it $imageName:$imageTag
 
 # Create a repository in ACR service
 az acr create \
@@ -20,16 +20,16 @@ az acr create \
   --sku Basic
 
 # then log in
-az acr login --name $appRegistry
+# az acr login --name $appRegistry
 
 # Both these commands will give a same result
 az acr show \
-  --name $appRegistry 
-  --query loginServer 
-  --output table
+  --name $appRegistry \
+  --query loginServer \
+  --output table \
 
 # let the user login to Docker using password from Azure appRegistry
-docker login $appRegistry.azurecr.io \
+# docker login $appRegistry.azurecr.io \
 
 docker push $appRegistry.azurecr.io/$imagename:$imageTag
 
