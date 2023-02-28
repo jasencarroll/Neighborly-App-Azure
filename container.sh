@@ -3,7 +3,20 @@
 chmod +x variables.sh
 source variables.sh
 
+<<<<<<< HEAD
 # Pat 1 - Get Azure Ready
+=======
+# Run from within the existing Function project directory.
+# Creates a Dockerfile
+func init --docker-only --python
+
+# SYNTAX 
+# docker build -t <name:tag> <path>
+docker build --platform linux/amd64 -t $imageName:$imageTag .
+
+# docker run -p 7071:7071 -it $imageName:$imageTag
+
+>>>>>>> 86742a3d69cd76012dbfb2eedb43b986574c9288
 # Create a repository in ACR service
 az acr create \
   --resource-group $resourceGroup \
@@ -11,12 +24,18 @@ az acr create \
   --sku Basic
 echo "acr created"
 # then log in
+<<<<<<< HEAD
 az acr login --name $appRegistry
 echo "logged in"
+=======
+# az acr login --name $appRegistry
+
+>>>>>>> 86742a3d69cd76012dbfb2eedb43b986574c9288
 # Both these commands will give a same result
 az acr show \
   --name $appRegistry \
   --query loginServer \
+<<<<<<< HEAD
   --output table
 echo "list above"
 
@@ -38,6 +57,12 @@ docker login $appRegistry.azurecr.io \
   --username $username \
   --password-stdin $pass
 echo "Docker logged in"
+=======
+  --output table \
+
+# let the user login to Docker using password from Azure appRegistry
+# docker login $appRegistry.azurecr.io \
+>>>>>>> 86742a3d69cd76012dbfb2eedb43b986574c9288
 
 docker push $appRegistry.azurecr.io/$imageName:$imageTag
 echo "Docker pushed"
