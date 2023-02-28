@@ -1,0 +1,438 @@
+jasen@Bertha Neighbors2.0(dev*)$ bash container.sh
+=======Local Environment Variables======
+functionApp = neighborAppjc186148
+resourceGroup = rgjc186148
+storageAccount = blobjc186148
+region = westus3
+cosmosDBAccountName = cosmojc186148
+serverVersion = 3.6
+databaseName = dbjc186148
+connectionString = mongodb://cosmojc186148:VNTLW4DxnQYmuGrgNxemchah8k8VX2rUffJZqMSKi3N5ZcmYYPlvVI7zKWl5svVmJNeQOOZ2YkcbACDbwQlxew==@cosmojc186148.mongo.cosmos.azure.com:10255/?ssl=true&replicaSet=globaldb&retrywrites=false&maxIdleTimeMS=120000&appName=@cosmojc186148@
+adsCollection = advertisements
+postsCollection = posts
+webApp = jc186148-webappsr
+containerRegistry = acrjc186148
+AKSCluster = aksclusterjc186148
+imageName = imagejc186148
+imageTag = v1
+=======End of Result======
+{
+  "adminUserEnabled": false,
+  "anonymousPullEnabled": false,
+  "creationDate": "2023-02-27T22:04:42.131732+00:00",
+  "dataEndpointEnabled": false,
+  "dataEndpointHostNames": [],
+  "encryption": {
+    "keyVaultProperties": null,
+    "status": "disabled"
+  },
+  "id": "/subscriptions/a03d6f21-4710-41d1-a57b-1f567aef08e1/resourceGroups/rgjc186148/providers/Microsoft.ContainerRegistry/registries/appregjc186148",
+  "identity": null,
+  "location": "westus3",
+  "loginServer": "appregjc186148.azurecr.io",
+  "name": "appregjc186148",
+  "networkRuleBypassOptions": "AzureServices",
+  "networkRuleSet": null,
+  "policies": {
+    "azureAdAuthenticationAsArmPolicy": {
+      "status": "enabled"
+    },
+    "exportPolicy": {
+      "status": "enabled"
+    },
+    "quarantinePolicy": {
+      "status": "disabled"
+    },
+    "retentionPolicy": {
+      "days": 7,
+      "lastUpdatedTime": "2023-02-28T03:08:50.287783+00:00",
+      "status": "disabled"
+    },
+    "softDeletePolicy": {
+      "lastUpdatedTime": "2023-02-28T03:08:50.287783+00:00",
+      "retentionDays": 7,
+      "status": "disabled"
+    },
+    "trustPolicy": {
+      "status": "disabled",
+      "type": "Notary"
+    }
+  },
+  "privateEndpointConnections": [],
+  "provisioningState": "Succeeded",
+  "publicNetworkAccess": "Enabled",
+  "resourceGroup": "rgjc186148",
+  "sku": {
+    "name": "Basic",
+    "tier": "Basic"
+  },
+  "status": null,
+  "systemData": {
+    "createdAt": "2023-02-27T22:04:42.131732+00:00",
+    "createdBy": "jasen.c7@gmail.com",
+    "createdByType": "User",
+    "lastModifiedAt": "2023-02-28T03:08:50.070109+00:00",
+    "lastModifiedBy": "jasen.c7@gmail.com",
+    "lastModifiedByType": "User"
+  },
+  "tags": {},
+  "type": "Microsoft.ContainerRegistry/registries",
+  "zoneRedundancy": "Disabled"
+}
+acr created
+Login Succeeded
+logged in
+Result
+-------------------------
+appregjc186148.azurecr.io
+list above
+Dockerfile already exists. Skipped!
+.dockerignore already exists. Skipped!
+[+] Building 1.0s (9/9) FINISHED
+ => [internal] load build definition from Dockerfile                                                                      0.0s
+ => => transferring dockerfile: 32B                                                                                       0.0s 
+ => [internal] load .dockerignore                                                                                         0.0s 
+ => => transferring context: 34B                                                                                          0.0s 
+ => [internal] load metadata for mcr.microsoft.com/azure-functions/python:4-python3.8                                     0.4s 
+ => [internal] load build context                                                                                         0.1s
+ => => transferring context: 570.18kB                                                                                     0.1s 
+ => [1/4] FROM mcr.microsoft.com/azure-functions/python:4-python3.8@sha256:030d307fdd2e6f69e72203f314443a20242338ae24eae  0.0s 
+ => CACHED [2/4] COPY requirements.txt /                                                                                  0.0s
+ => CACHED [3/4] RUN pip install -r /requirements.txt                                                                     0.0s 
+ => [4/4] COPY . /home/site/wwwroot                                                                                       0.2s 
+ => exporting to image                                                                                                    0.2s
+ => => exporting layers                                                                                                   0.2s 
+ => => writing image sha256:23390f0bdb5dbfa5c1b5f1a1ce074a0c6fea151f27acbf26cb515fe7523c0e54                              0.0s
+ => => naming to docker.io/library/dockerjc186148                                                                         0.0s 
+info: Host.Triggers.Warmup[0]
+      Initializing Warmup Extension.
+info: Host.Startup[503]
+      Initializing Host. OperationId: 'c5a6079d-416c-449b-bb4e-b8eba97cfeb5'.
+info: Host.Startup[504]
+      Host initialization: ConsecutiveErrors=0, StartupCount=1, OperationId=c5a6079d-416c-449b-bb4e-b8eba97cfeb5
+info: Microsoft.Azure.WebJobs.Hosting.OptionsLoggingService[0]
+      LoggerFilterOptions
+      {
+        "MinLevel": "None",
+        "Rules": [
+          {
+            "ProviderName": null,
+            "CategoryName": null,
+            "LogLevel": null,
+            "Filter": "<AddFilter>b__0"
+          },
+          {
+            "ProviderName": null,
+            "CategoryName": "Host.Function.ToolingConsoleLog",
+            "LogLevel": "Information",
+            "Filter": null
+          },
+          {
+            "ProviderName": "Microsoft.Azure.WebJobs.Script.WebHost.Diagnostics.SystemLoggerProvider",
+            "CategoryName": null,
+            "LogLevel": "None",
+            "Filter": null
+          },
+          {
+            "ProviderName": "Microsoft.Azure.WebJobs.Script.WebHost.Diagnostics.SystemLoggerProvider",
+            "CategoryName": null,
+            "LogLevel": null,
+            "Filter": "<AddFilter>b__0"
+          }
+        ]
+      }
+info: Microsoft.Azure.WebJobs.Hosting.OptionsLoggingService[0]
+      ConcurrencyOptions
+      {
+        "DynamicConcurrencyEnabled": false,
+        "MaximumFunctionConcurrency": 500,
+        "CPUThreshold": 0.8,
+        "SnapshotPersistenceEnabled": true
+      }
+info: Microsoft.Azure.WebJobs.Hosting.OptionsLoggingService[0]
+      FunctionResultAggregatorOptions
+      {
+        "BatchSize": 1000,
+        "FlushTimeout": "00:00:30",
+        "IsEnabled": true
+      }
+info: Microsoft.Azure.WebJobs.Hosting.OptionsLoggingService[0]
+      SingletonOptions
+      {
+        "LockPeriod": "00:00:15",
+        "ListenerLockPeriod": "00:01:00",
+        "LockAcquisitionTimeout": "10675199.02:48:05.4775807",
+        "LockAcquisitionPollingInterval": "00:00:05",
+        "ListenerLockRecoveryPollingInterval": "00:01:00"
+      }
+info: Microsoft.Azure.WebJobs.Hosting.JobHostService[0]
+      Starting JobHost
+info: Host.Startup[401]
+      Starting Host (HostId=3d46513f8860-2137340777, InstanceId=712d5619-1cb6-4c24-8603-c401f37b0d0d, Version=4.15.3.3, ProcessId=1, AppDomainId=1, InDebugMode=False, InDiagnosticMode=False, FunctionsExtensionVersion=(null))
+info: Host.Startup[314]
+      Loading functions metadata
+info: Host.Startup[326]
+      Reading functions metadata
+info: Host.Startup[327]
+      1 functions found
+info: Host.Startup[315]
+      0 functions loaded
+info: Host.Startup[0]
+      Generating 0 job function(s)
+warn: Host.Startup[0]
+      No job functions found. Try making your job classes and methods public. If you're using binding extensions (e.g. Azure Storage, ServiceBus, Timers, etc.) make sure you've called the registration method for the extension(s) in your startup code (e.g. builder.AddAzureStorage(), builder.AddServiceBus(), builder.AddTimers(), etc.).
+info: Microsoft.Azure.WebJobs.Hosting.OptionsLoggingService[0]
+      HttpOptions
+      {
+        "DynamicThrottlesEnabled": false,
+        "EnableChunkedRequestBinding": false,
+        "MaxConcurrentRequests": -1,
+        "MaxOutstandingRequests": -1,
+        "RoutePrefix": "api"
+      }
+info: Microsoft.Azure.WebJobs.Script.WebHost.WebScriptHostHttpRoutesManager[0]
+      Initializing function HTTP routes
+      No HTTP routes mapped
+
+info: Host.Startup[412]
+      Host initialized (24ms)
+info: Host.Startup[413]
+      Host started (33ms)
+info: Host.Startup[0]
+      Job host started
+Hosting environment: Production
+Content root path: /azure-functions-host
+Now listening on: http://[::]:80
+Application started. Press Ctrl+C to shut down.
+info: Host.General[337]
+      Host lock lease acquired by instance ID '000000000000000000000000034833D3'.
+^CApplication is shutting down...
+info: Microsoft.Azure.WebJobs.Hosting.JobHostService[0]
+      Stopping JobHost
+info: Host.Startup[0]
+      Job host stopped
+# Go to Container Registry >> Settings >> Access Keys and enable the Admin user. 
+# Use those credentials to login from your terminal.
+accepts at most 1 arg(s), received 2
+Docker logged in
+The push refers to repository [appregjc186148.azurecr.io/dockerjc186148]
+99a35240540d: Pushed
+20c5d7a68f9f: Layer already exists
+1732190658d2: Layer already exists
+b5aa3344db94: Layer already exists
+bc6e579ae15f: Layer already exists
+440269f6d18a: Layer already exists
+d2e313ec808d: Layer already exists
+39254a3dec4c: Layer already exists
+6dc509f50d68: Layer already exists
+79eca9709abc: Layer already exists
+4aeeb3d236d4: Layer already exists
+36e5ac463d7d: Layer already exists
+4695cdfb426a: Layer already exists
+v1: digest: sha256:1874452141120a2422d5b032d4fd01b7d30559c05712b6bc94cba677916c970d size: 3058
+Docker pushed
+Result
+--------------
+dockerjc186148
+imagejc186148
+list shown
+AAD role propagation done[############################################]  100.0000%{
+  "aadProfile": null,
+  "addonProfiles": null,
+  "agentPoolProfiles": [
+    {
+      "availabilityZones": null,
+      "count": 2,
+      "creationData": null,
+      "currentOrchestratorVersion": "1.24.9",
+      "enableAutoScaling": false,
+      "enableEncryptionAtHost": false,
+      "enableFips": false,
+      "enableNodePublicIp": false,
+      "enableUltraSsd": false,
+      "gpuInstanceProfile": null,
+      "hostGroupId": null,
+      "kubeletConfig": null,
+      "kubeletDiskType": "OS",
+      "linuxOsConfig": null,
+      "maxCount": null,
+      "maxPods": 110,
+      "minCount": null,
+      "mode": "System",
+      "name": "nodepool1",
+      "nodeImageVersion": "AKSUbuntu-1804gen2containerd-2023.02.09",
+      "nodeLabels": null,
+      "nodePublicIpPrefixId": null,
+      "nodeTaints": null,
+      "orchestratorVersion": "1.24.9",
+      "osDiskSizeGb": 128,
+      "osDiskType": "Managed",
+      "osSku": "Ubuntu",
+      "osType": "Linux",
+      "podSubnetId": null,
+      "powerState": {
+        "code": "Running"
+      },
+      "provisioningState": "Succeeded",
+      "proximityPlacementGroupId": null,
+      "scaleDownMode": null,
+      "scaleSetEvictionPolicy": null,
+      "scaleSetPriority": null,
+      "spotMaxPrice": null,
+      "tags": null,
+      "type": "VirtualMachineScaleSets",
+      "upgradeSettings": {
+        "maxSurge": null
+      },
+      "vmSize": "Standard_DS2_v2",
+      "vnetSubnetId": null,
+      "workloadRuntime": null
+    }
+  ],
+  "apiServerAccessProfile": null,
+  "autoScalerProfile": null,
+  "autoUpgradeProfile": null,
+  "azurePortalFqdn": "ak84jc1861-rgjc186148-a03d6f-5e339810.portal.hcp.westus3.azmk8s.io",
+  "currentKubernetesVersion": "1.24.9",
+  "disableLocalAccounts": false,
+  "diskEncryptionSetId": null,
+  "dnsPrefix": "ak84jc1861-rgjc186148-a03d6f",
+  "enablePodSecurityPolicy": null,
+  "enableRbac": true,
+  "extendedLocation": null,
+  "fqdn": "ak84jc1861-rgjc186148-a03d6f-5e339810.hcp.westus3.azmk8s.io",
+  "fqdnSubdomain": null,
+  "httpProxyConfig": null,
+  "id": "/subscriptions/a03d6f21-4710-41d1-a57b-1f567aef08e1/resourcegroups/rgjc186148/providers/Microsoft.ContainerService/managedClusters/ak84jc186148",
+  "identity": {
+    "principalId": "c8c232e4-e7c6-4a5f-b1a6-92b5f8f3c8fd",
+    "tenantId": "985d11c6-6f31-474b-8a80-4a0858570090",
+    "type": "SystemAssigned",
+    "userAssignedIdentities": null
+  },
+  "identityProfile": {
+    "kubeletidentity": {
+      "clientId": "e30c24bf-df3c-487b-b584-7e5047b92abd",
+      "objectId": "246ea719-0333-4e36-9079-0347ea6aeaa5",
+      "resourceId": "/subscriptions/a03d6f21-4710-41d1-a57b-1f567aef08e1/resourcegroups/MC_rgjc186148_ak84jc186148_westus3/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ak84jc186148-agentpool"
+    }
+  },
+  "kubernetesVersion": "1.24.9",
+  "linuxProfile": {
+    "adminUsername": "azureuser",
+    "ssh": {
+      "publicKeys": [
+        {
+          "keyData": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCkkHswIJFx1E2RLu1Nlnl8+5ne6hapmeUbIGUhJAnY62FvqGEVtkL9LdJiY3ciWzK1aD4Mj3UQxMHzWgGnmnAuo2Uov9QBacf2HNn8uoeKPshXd7mUzAeMS4RJhH9WQoKBE3HufuxjdEfwlzjPXFL65SyiBG//S+FFp8FGAPjI4qPgfjk41hpWK4CmNzB8wjtIVOjDXUPKaPTRkwvgYqfW38GfAX3ilVhJVgXtQUP5bIvXi6GcSq3UVMEyzuMzwpEamA4ANxUQvVqQkrSw9FF0JLSxGPcFgKuHI0Zkmfj4syVUDHIqYSynZbMTi4dsTo+G7NKHamHYivYoVfGT/Dtb"
+        }
+      ]
+    }
+  },
+  "location": "westus3",
+  "maxAgentPools": 100,
+  "name": "ak84jc186148",
+  "networkProfile": {
+    "dnsServiceIp": "10.0.0.10",
+    "dockerBridgeCidr": "172.17.0.1/16",
+    "ipFamilies": [
+      "IPv4"
+    ],
+    "loadBalancerProfile": {
+      "allocatedOutboundPorts": null,
+      "effectiveOutboundIPs": [
+        {
+          "id": "/subscriptions/a03d6f21-4710-41d1-a57b-1f567aef08e1/resourceGroups/MC_rgjc186148_ak84jc186148_westus3/providers/Microsoft.Network/publicIPAddresses/e7f86d91-fe80-403c-b9ca-e027dd514a0e",
+          "resourceGroup": "MC_rgjc186148_ak84jc186148_westus3"
+        }
+      ],
+      "enableMultipleStandardLoadBalancers": null,
+      "idleTimeoutInMinutes": null,
+      "managedOutboundIPs": {
+        "count": 1,
+        "countIpv6": null
+      },
+      "outboundIPs": null,
+      "outboundIpPrefixes": null
+    },
+    "loadBalancerSku": "Standard",
+    "natGatewayProfile": null,
+    "networkMode": null,
+    "networkPlugin": "kubenet",
+    "networkPolicy": null,
+    "outboundType": "loadBalancer",
+    "podCidr": "10.244.0.0/16",
+    "podCidrs": [
+      "10.244.0.0/16"
+    ],
+    "serviceCidr": "10.0.0.0/16",
+    "serviceCidrs": [
+      "10.0.0.0/16"
+    ]
+  },
+  "nodeResourceGroup": "MC_rgjc186148_ak84jc186148_westus3",
+  "oidcIssuerProfile": {
+    "enabled": false,
+    "issuerUrl": null
+  },
+  "podIdentityProfile": null,
+  "powerState": {
+    "code": "Running"
+  },
+  "privateFqdn": null,
+  "privateLinkResources": null,
+  "provisioningState": "Succeeded",
+  "publicNetworkAccess": null,
+  "resourceGroup": "rgjc186148",
+  "securityProfile": {
+    "azureKeyVaultKms": null,
+    "defender": null
+  },
+  "servicePrincipalProfile": {
+    "clientId": "msi",
+    "secret": null
+  },
+  "sku": {
+    "name": "Basic",
+    "tier": "Free"
+  },
+  "storageProfile": {
+    "blobCsiDriver": null,
+    "diskCsiDriver": {
+      "enabled": true
+    },
+    "fileCsiDriver": {
+      "enabled": true
+    },
+    "snapshotController": {
+      "enabled": true
+    }
+  },
+  "systemData": null,
+  "tags": null,
+  "type": "Microsoft.ContainerService/ManagedClusters",
+  "windowsProfile": null,
+  "workloadAutoScalerProfile": {
+    "keda": null
+  }
+}
+aks created
+Merged "ak84jc186148" as current context in C:\Users\jasen\.kube\config
+got credentials
+WARNING: This version information is deprecated and will be replaced with the output from kubectl version --short.  Use --output=yaml|json to get the full version.
+Client Version: version.Info{Major:"1", Minor:"25", GitVersion:"v1.25.4", GitCommit:"872a965c6c6526caa949f0c6ac028ef7aff3fb78", GitTreeState:"clean", BuildDate:"2022-11-09T13:36:36Z", GoVersion:"go1.19.3", Compiler:"gc", Platform:"windows/amd64"}        
+Kustomize Version: v4.5.7
+version
+NAME                                STATUS   ROLES   AGE   VERSION
+aks-nodepool1-12837075-vmss000000   Ready    agent   66m   v1.24.9
+aks-nodepool1-12837075-vmss000001   Ready    agent   66m   v1.24.9
+nodes
+secret/ak84jc186148 configured
+live
+CURRENT   NAME                 CLUSTER              AUTHINFO                                    NAMESPACE
+          AK8jc186148          AK8jc186148          clusterUser_rgjc186148_AK8jc186148
+*         ak84jc186148         ak84jc186148         clusterUser_rgjc186148_ak84jc186148
+          aksclusterjc186148   aksclusterjc186148   clusterUser_rgjc186148_aksclusterjc186148
+          k8-186148            k8-186148            clusterUser_rgjc186148_k8-186148
+          k8186148             k8186148             clusterUser_rgjc186148_k8186148
+NAME         TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)   AGE
+kubernetes   ClusterIP   10.0.0.1     <none>        443/TCP   67m

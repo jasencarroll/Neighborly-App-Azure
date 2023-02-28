@@ -24,13 +24,13 @@ echo "list above"
 func init --docker-only --python
 
 # Build the docker image
-docker build -t $imageName .
+docker build -t $docker .
 
 # Test the image locally
-docker run -p 7071:7071 -it $imageName
+docker run -p 7071:7071 -it $docker
 
 # Tag your docker image for Azure Container Registry
-docker tag $imageName $appRegistry.azurecr.io/$imageName:$imageTag
+docker tag $docker $appRegistry.azurecr.io/$docker:v1
 
 echo "# Go to Container Registry >> Settings >> Access Keys and enable the Admin user. 
 # Use those credentials to login from your terminal."
@@ -39,7 +39,7 @@ docker login $appRegistry.azurecr.io \
   --password-stdin $pass
 echo "Docker logged in"
 
-docker push $appRegistry.azurecr.io/$imageName:$imageTag
+docker push $appRegistry.azurecr.io/$docker:v1
 echo "Docker pushed"
 az acr repository list --name $appRegistry  --output table
 echo "list shown"
@@ -65,9 +65,9 @@ echo 'version'
 kubectl get nodes
 echo 'nodes'
 # build the image and deploy to K8s
-func kubernetes deploy \
+func kubernetes deploy --python \
 --name $kubCluster \
---image-name $containerRegistry.azurecr.io/$imageName:$imageTag \
+--image-name $appRegistry.azurecr.io/$docker:v1
 echo 'live'
 # check deployement
 kubectl config get-contexts

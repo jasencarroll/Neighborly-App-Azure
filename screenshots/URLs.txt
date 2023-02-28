@@ -1,0 +1,8 @@
+Web App = jc186148-webappsr = jc186148-webappsr.azurewebsites.net
+Function App = neighborAppjc186148 = https://neighborappjc186148.azurewebsites.net
+Azure Cosmos DB for MongoDB = cosmojc186148 = https://cosmojc186148.mongo.cosmos.azure.com:443/
+Storage account = blobjc186148 = appregjc186148.azurecr.io
+Event Grib Topic = top186148 = https://top186148.westus3-1.eventgrid.azure.net/api/events
+Container Registry = appregjc186148 = appregjc186148.azurecr.io
+k8 = ak84jc186148 = ak84jc1861-rgjc186148-a03d6f-5e339810.hcp.westus3.azmk8s.io
+GitHub = https://github.com/jasenc/Neighbors2.0/tree/dev
