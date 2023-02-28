@@ -31,7 +31,7 @@ imageName="image$randomID"
 imageTag='v1'
 ########################################
 appRegistry="appreg$randomID"
-kubCluster="k8$randomID"
+kubCluster="ak84$randomID"
 docker="docker$randomID"
 # catch the connection string from the Azure portal
 connectionString="mongodb://cosmojc186148:VNTLW4DxnQYmuGrgNxemchah8k8VX2rUffJZqMSKi3N5ZcmYYPlvVI7zKWl5svVmJNeQOOZ2YkcbACDbwQlxew==@cosmojc186148.mongo.cosmos.azure.com:10255/?ssl=true&replicaSet=globaldb&retrywrites=false&maxIdleTimeMS=120000&appName=@cosmojc186148@"
