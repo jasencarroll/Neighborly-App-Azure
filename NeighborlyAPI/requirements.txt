@@ -2,7 +2,7 @@ flask
 requests 
 flask-bootstrap 
 flask-restplus 
-werkzeug==0.16.1
+werkzeug
 azure-functions 
 azure-cosmos 
 pymongo 
